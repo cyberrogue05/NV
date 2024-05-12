@@ -77,7 +77,7 @@ func runTool() {
 			portRange = strings.TrimSpace(portRange)
 			runCommand("sh", "-c", fmt.Sprintf("nmap -p %s %s | sed 's/Nmap/NVSCANNER/g' | sed '/https:\\/\\/nmap.org/d'", portRange, target))
 		case "7":
-			runCommand("sh", "-c", fmt.Sprintf("nmap -sV %s | sed 's/Nmap/NVSCANNER/g' | awk '{gsub(\"Nmap\",\"NVSCANNER\")}1' |  awk '/^PORT/{flag=1} flag; /^Nmap done/{flag=0}'", target))		
+			runCommand("sh", "-c", fmt.Sprintf("nmap -sV %s | sed 's/Nmap/NVSCANNER/g' | awk '{gsub(\"Nmap\",\"NVSCANNER\")}1' | sed '/https:\\/\\/nmap.org/d' | awk '/^PORT/{flag=1} flag; /^Nmap done/{flag=0}'", target))		
 		case "8":
 			runCommand("sh", "-c", fmt.Sprintf("sudo nmap -O --osscan-guess %s | sed 's/Nmap/NVSCANNER/g' | sed '/https:\\/\\/nmap.org/d' | awk '!/PORT|STATE|SERVICE/'", target))
 		default:
