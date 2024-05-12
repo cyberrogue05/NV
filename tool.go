@@ -121,6 +121,7 @@ func scanPorts(target string) {
 		}(address)
 	}
 
+	wg.Wait()
 }
 
 func runCommand(command string, args ...string) {
