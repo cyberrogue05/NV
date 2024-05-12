@@ -100,7 +100,7 @@ func scanPorts(target string) {
 	fmt.Println("---------------------------------------------------------RESULT---------------------------------------------------------")
 	// Define the range of ports to scan
 	startPort := 1
-	endPort := 1024
+	endPort := 800
 
 	fmt.Println("Scanning ports", startPort, "-", endPort)
 
