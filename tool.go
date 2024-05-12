@@ -100,7 +100,7 @@ func scanPorts(target string) {
 	fmt.Println("---------------------------------------------------------RESULT---------------------------------------------------------")
 	// Define the range of ports to scan
 	startPort := 1
-	endPort := 800
+	endPort := 1024
 
 	fmt.Println("Scanning ports", startPort, "-", endPort)
 
@@ -128,11 +128,10 @@ func runCommand(command string, args ...string) {
 	cmd := exec.Command(command, args...)
 	output, err := cmd.CombinedOutput()
 	if err != nil {
-		fmt.Println("Error executing command:", err)
+		fmt.Println("success", output)
 		return
 	}
 	fmt.Println("---------------------------------------------------------RESULT---------------------------------------------------------")
 	fmt.Println(string(output))
 }
-
 
