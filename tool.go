@@ -121,13 +121,14 @@ func scanPorts(target string) {
 		}(address)
 	}
 
+	wg.Wait()
 }
 
 func runCommand(command string, args ...string) {
 	cmd := exec.Command(command, args...)
 	output, err := cmd.CombinedOutput()
 	if err != nil {
-		fmt.Println("success", output)
+		fmt.Println("an error occured", err)
 		return
 	}
 	fmt.Println("---------------------------------------------------------RESULT---------------------------------------------------------")
